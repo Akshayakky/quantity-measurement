@@ -29,4 +29,13 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(feet1, feet1);
         Assert.assertEquals(true, areEqual);
     }
+
+    @Test
+    public void givenObjectTypeSame_ShouldReturnTrue() {
+        Feet feet1 = new Feet(0);
+        Feet feet2 = new Feet(0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(feet1, feet2);
+        Assert.assertEquals(true, areEqual);
+    }
 }
