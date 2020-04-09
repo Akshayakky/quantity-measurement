@@ -455,4 +455,17 @@ public class QuantityMeasurementTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenTwoWeights_WhenEqual_ShouldReturnTrue() {
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.KILOGRAMS);
+            Quantity quantity2 = new Quantity(1000, Unit.GRAMS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
+    }
 }

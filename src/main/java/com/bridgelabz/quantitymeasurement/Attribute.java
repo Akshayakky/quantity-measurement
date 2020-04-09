@@ -1,5 +1,5 @@
 package com.bridgelabz.quantitymeasurement;
 
 public enum Attribute {
-        LENGTH, VOLUME;
+    LENGTH, VOLUME, WEIGHT;
 }
