@@ -6,253 +6,363 @@ import org.junit.Test;
 public class QuantityMeasurementTest {
     @Test
     public void givenLengthsInFeet_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(1, Unit.FEET);
-        Quantity quantity2 = new Quantity(12, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.FEET);
+            Quantity quantity2 = new Quantity(12, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void givenObjectNull_ShouldReturnFalse() {
-        Quantity quantity1 = new Quantity(0, Unit.FEET);
-        Quantity quantity2 = null;
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(false, areEqual);
+    public void givenObjectNull_ShouldThrowException() {
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, null);
+            Assert.assertEquals(false, areEqual);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_QUANTITY, e.type);
+        }
     }
 
     @Test
     public void givenObjectsSame_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity1);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity1);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenObjectTypeSame_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.FEET);
-        Quantity quantity2 = new Quantity(0, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.FEET);
+            Quantity quantity2 = new Quantity(0, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenObjectValueSame_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.FEET);
-        Quantity quantity2 = new Quantity(0, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.FEET);
+            Quantity quantity2 = new Quantity(0, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenObjectValueDifferent_ShouldReturnFalse() {
-        Quantity quantity1 = new Quantity(11, Unit.FEET);
-        Quantity quantity2 = new Quantity(12, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertNotEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(11, Unit.FEET);
+            Quantity quantity2 = new Quantity(12, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertNotEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenLengthsInInch_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.INCH);
-        Quantity quantity2 = new Quantity(0, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.INCH);
+            Quantity quantity2 = new Quantity(0, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void givenInchObjectNull_ShouldReturnFalse() {
-        Quantity quantity1 = new Quantity(0, Unit.INCH);
-        Quantity quantity2 = null;
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(false, areEqual);
+    public void givenInchObjectNull_ShouldThrowException() {
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, null);
+            Assert.assertEquals(false, areEqual);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_QUANTITY, e.type);
+        }
     }
 
     @Test
     public void givenInchObjectsSame_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity1);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity1);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenInchObjectTypeSame_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.INCH);
-        Quantity quantity2 = new Quantity(0, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.INCH);
+            Quantity quantity2 = new Quantity(0, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenInchObjectValueSame_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.INCH);
-        Quantity quantity2 = new Quantity(0, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.INCH);
+            Quantity quantity2 = new Quantity(0, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenInchObjectValueDifferent_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(12, Unit.INCH);
-        Quantity quantity2 = new Quantity(11, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertNotEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(12, Unit.INCH);
+            Quantity quantity2 = new Quantity(11, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertNotEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenInchAndFeetValue_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.INCH);
-        Quantity quantity2 = new Quantity(0, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.INCH);
+            Quantity quantity2 = new Quantity(0, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest1_ShouldReturnFalse() {
-        Quantity quantity2 = new Quantity(1, Unit.FEET);
-        Quantity quantity1 = new Quantity(1, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(false, areEqual);
+        try {
+            Quantity quantity2 = new Quantity(1, Unit.FEET);
+            Quantity quantity1 = new Quantity(1, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(false, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
 
     @Test
     public void givenTwoLengthsTest2_ShouldReturnFalse() {
-        Quantity quantity1 = new Quantity(1, Unit.INCH);
-        Quantity quantity2 = new Quantity(1, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(false, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.INCH);
+            Quantity quantity2 = new Quantity(1, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(false, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest3_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(1, Unit.FEET);
-        Quantity quantity2 = new Quantity(12, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.FEET);
+            Quantity quantity2 = new Quantity(12, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest4_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(12, Unit.INCH);
-        Quantity quantity2 = new Quantity(1, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(12, Unit.INCH);
+            Quantity quantity2 = new Quantity(1, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest5_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(1, Unit.FEET);
-        Quantity quantity2 = new Quantity(1, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.FEET);
+            Quantity quantity2 = new Quantity(1, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest6_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(1, Unit.INCH);
-        Quantity quantity2 = new Quantity(1, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.INCH);
+            Quantity quantity2 = new Quantity(1, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest1_WhenEqual_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(3, Unit.FEET);
-        Quantity quantity2 = new Quantity(1, Unit.YARD);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(3, Unit.FEET);
+            Quantity quantity2 = new Quantity(1, Unit.YARD);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest2_WhenEqual_ShouldReturnFalse() {
-        Quantity quantity1 = new Quantity(1, Unit.FEET);
-        Quantity quantity2 = new Quantity(1, Unit.YARD);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(false, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.FEET);
+            Quantity quantity2 = new Quantity(1, Unit.YARD);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(false, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest3_WhenEqual_ShouldReturnFalse() {
-        Quantity quantity1 = new Quantity(1, Unit.INCH);
-        Quantity quantity2 = new Quantity(1, Unit.YARD);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(false, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.INCH);
+            Quantity quantity2 = new Quantity(1, Unit.YARD);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(false, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest4_WhenEqual_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(1, Unit.YARD);
-        Quantity quantity2 = new Quantity(36, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.YARD);
+            Quantity quantity2 = new Quantity(36, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest4_WhenEqual_ShouldNotReturnFalse() {
-        Quantity quantity1 = new Quantity(1, Unit.YARD);
-        Quantity quantity2 = new Quantity(36, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertNotEquals(false, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.YARD);
+            Quantity quantity2 = new Quantity(36, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertNotEquals(false, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest5_WhenEqual_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(36, Unit.INCH);
-        Quantity quantity2 = new Quantity(1, Unit.YARD);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(36, Unit.INCH);
+            Quantity quantity2 = new Quantity(1, Unit.YARD);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest6_WhenEqual_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(1, Unit.YARD);
-        Quantity quantity2 = new Quantity(3, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.YARD);
+            Quantity quantity2 = new Quantity(3, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengths_WhenEqual_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(2.5, Unit.CENTIMETER);
-        Quantity quantity2 = new Quantity(1, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(2.5, Unit.CENTIMETER);
+            Quantity quantity2 = new Quantity(1, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsOneInCentimeter_WhenEqual_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(5, Unit.CENTIMETER);
-        Quantity quantity2 = new Quantity(2, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(5, Unit.CENTIMETER);
+            Quantity quantity2 = new Quantity(2, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -293,10 +403,14 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTwoVolumes_WhenEqual_ShouldReturnTrue() {
-        Quantity quantity1 = new Quantity(0, Unit.LITRE);
-        Quantity quantity2 = new Quantity(0, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
-        Assert.assertEquals(true, areEqual);
+        try {
+            Quantity quantity1 = new Quantity(0, Unit.LITRE);
+            Quantity quantity2 = new Quantity(0, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.ATTRIBUTE_MISMATCH, e.type);
+        }
     }
 }

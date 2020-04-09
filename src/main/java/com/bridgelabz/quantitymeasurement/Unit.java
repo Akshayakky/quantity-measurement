@@ -2,19 +2,14 @@ package com.bridgelabz.quantitymeasurement;
 
 public enum Unit {
 
-    INCH(Entity.LENGTH,1), FEET(Entity.LENGTH,12), YARD(Entity.LENGTH,36)
-    , CENTIMETER(Entity.LENGTH,0.4), LITRE(Entity.VOLUME,1), GALLON(Entity.VOLUME,3.78);
+    INCH(Attribute.LENGTH, 1), FEET(Attribute.LENGTH, 12), YARD(Attribute.LENGTH, 36), CENTIMETER(Attribute.LENGTH, 0.4), LITRE(Attribute.VOLUME, 1), GALLON(Attribute.VOLUME, 3.78);
 
     double toBase;
-    Entity entity;
+    Attribute attribute;
 
-    enum Entity{
-        LENGTH, VOLUME;
-    }
-
-    Unit(Entity entity, double toBase) {
+    Unit(Attribute attribute, double toBase) {
         this.toBase = toBase;
-        this.entity = entity;
+        this.attribute = attribute;
     }
 
     public double convertToBase(double quantity) {
