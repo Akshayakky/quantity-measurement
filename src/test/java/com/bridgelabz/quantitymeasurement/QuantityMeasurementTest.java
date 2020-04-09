@@ -373,7 +373,7 @@ public class QuantityMeasurementTest {
             QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
             double sum = quantityMeasurement.add(quantity1, quantity2);
             Assert.assertEquals(4, sum, 0);
-        }catch (QuantityMeasurementException e) {
+        } catch (QuantityMeasurementException e) {
             e.printStackTrace();
         }
     }
@@ -490,6 +490,19 @@ public class QuantityMeasurementTest {
             QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
             double sum = quantityMeasurement.add(quantity1, quantity2);
             Assert.assertEquals(1001, sum, 0.1);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenTwoTemperature_WhenEqual_ShouldReturnTrue() {
+        try {
+            Quantity quantity1 = new Quantity(212, Unit.FAHRENHEIT);
+            Quantity quantity2 = new Quantity(100, Unit.CELCIUS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
         } catch (QuantityMeasurementException e) {
             e.printStackTrace();
         }
