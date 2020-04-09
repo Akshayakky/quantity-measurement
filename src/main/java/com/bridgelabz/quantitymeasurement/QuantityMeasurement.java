@@ -6,4 +6,10 @@ public class QuantityMeasurement {
             return true;
         return false;
     }
+
+    public boolean compare(Inch inch1, Inch inch2) {
+        if(inch1.equals(inch2))
+            return true;
+        return false;
+    }
 }

@@ -47,4 +47,22 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(feet1, feet2);
         Assert.assertEquals(true, areEqual);
     }
+
+    @Test
+    public void givenObjectValueDifferent_ShouldReturnFalse() {
+        Feet feet1 = new Feet(11);
+        Feet feet2 = new Feet(12);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(feet1, feet2);
+        Assert.assertNotEquals(true, areEqual);
+    }
+
+    @Test
+    public void givenLengthsInInch_ShouldReturnTrue() {
+        Inch inch1 = new Inch(0);
+        Inch inch2 = new Inch(0);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(inch1, inch2);
+        Assert.assertEquals(true, areEqual);
+    }
 }
