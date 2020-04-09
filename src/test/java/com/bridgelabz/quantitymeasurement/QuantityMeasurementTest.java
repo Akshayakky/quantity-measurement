@@ -139,7 +139,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoLengthsTest3_ShouldReturnFalse() {
+    public void givenTwoLengthsTest3_ShouldReturnTrue() {
         Length length2 = new Length(1, QuantityMeasurement.LengthUnits.FEET);
         Length length1 = new Length(12, QuantityMeasurement.LengthUnits.INCH);
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
@@ -148,7 +148,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoLengthsTest4_ShouldReturnFalse() {
+    public void givenTwoLengthsTest4_ShouldReturnTrue() {
         Length length2 = new Length(12, QuantityMeasurement.LengthUnits.INCH);
         Length length1 = new Length(1, QuantityMeasurement.LengthUnits.FEET);
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
@@ -157,7 +157,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoLengthsTest5_ShouldReturnFalse() {
+    public void givenTwoLengthsTest5_ShouldReturnTrue() {
         Length length2 = new Length(1, QuantityMeasurement.LengthUnits.FEET);
         Length length1 = new Length(1, QuantityMeasurement.LengthUnits.FEET);
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
@@ -166,9 +166,18 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoLengthsTest6_ShouldReturnFalse() {
+    public void givenTwoLengthsTest6_ShouldReturnTrue() {
         Length length2 = new Length(    1, QuantityMeasurement.LengthUnits.INCH);
         Length length1 = new Length(1, QuantityMeasurement.LengthUnits.INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(length1, length2);
+        Assert.assertEquals(true, areEqual);
+    }
+
+    @Test
+    public void givenTwoLengthsTest1_WhenEqual_ShouldReturnTrue() {
+        Length length2 = new Length(    3, QuantityMeasurement.LengthUnits.FEET);
+        Length length1 = new Length(1, QuantityMeasurement.LengthUnits.YARD);
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         boolean areEqual = quantityMeasurement.compare(length1, length2);
         Assert.assertEquals(true, areEqual);
