@@ -3,7 +3,7 @@ package com.bridgelabz.quantitymeasurement;
 public class QuantityMeasurement {
 
     enum LengthUnits {
-        FEET, INCH;
+        FEET, INCH, YARD;
     }
 
     public boolean compare(Length length1, Length length2) {

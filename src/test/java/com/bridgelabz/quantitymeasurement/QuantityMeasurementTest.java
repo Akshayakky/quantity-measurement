@@ -167,7 +167,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTwoLengthsTest6_ShouldReturnFalse() {
-        Length length2 = new Length(1, QuantityMeasurement.LengthUnits.INCH);
+        Length length2 = new Length(    1, QuantityMeasurement.LengthUnits.INCH);
         Length length1 = new Length(1, QuantityMeasurement.LengthUnits.INCH);
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         boolean areEqual = quantityMeasurement.compare(length1, length2);

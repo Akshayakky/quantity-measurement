@@ -6,13 +6,13 @@ public class Length {
     private QuantityMeasurement.LengthUnits unit;
 
     public Length(double length, QuantityMeasurement.LengthUnits unit) {
-        if (unit == QuantityMeasurement.LengthUnits.FEET) {
+        if (unit == QuantityMeasurement.LengthUnits.YARD)
+            this.length = 36 * length;
+        else if (unit == QuantityMeasurement.LengthUnits.FEET)
             this.length = 12 * length;
-            this.unit = QuantityMeasurement.LengthUnits.INCH;
-        } else {
+        else
             this.length = length;
-            this.unit = unit;
-        }
+        this.unit = QuantityMeasurement.LengthUnits.INCH;
     }
 
     @Override
