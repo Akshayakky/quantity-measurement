@@ -227,4 +227,13 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(length1, length2);
         Assert.assertEquals(true, areEqual);
     }
+
+    @Test
+    public void givenTwoLengthsTest6_WhenEqual_ShouldReturnTrue() {
+        Length length1 = new Length(    1, QuantityMeasurement.LengthUnits.YARD);
+        Length length2 = new Length(3, QuantityMeasurement.LengthUnits.FEET);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(length1, length2);
+        Assert.assertEquals(true, areEqual);
+    }
 }
