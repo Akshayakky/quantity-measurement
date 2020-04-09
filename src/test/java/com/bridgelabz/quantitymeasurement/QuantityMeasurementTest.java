@@ -272,4 +272,13 @@ public class QuantityMeasurementTest {
         double sum = quantityMeasurement.add(length1, length2);
         Assert.assertEquals(14, sum, 0);
     }
+
+    @Test
+    public void givenTwoLengthsTest3_ShouldReturnSumInInches() {
+        Length length1 = new Length(1, Unit.FEET);
+        Length length2 = new Length(1, Unit.FEET);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double sum = quantityMeasurement.add(length1, length2);
+        Assert.assertEquals(24, sum, 0);
+    }
 }
