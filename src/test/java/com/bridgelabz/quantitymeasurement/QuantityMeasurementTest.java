@@ -468,4 +468,17 @@ public class QuantityMeasurementTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenTwoWeightsTest2_WhenEqual_ShouldReturnTrue() {
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.TONNE);
+            Quantity quantity2 = new Quantity(1000, Unit.KILOGRAMS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
+    }
 }
