@@ -254,4 +254,13 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(length1, length2);
         Assert.assertEquals(true, areEqual);
     }
+
+    @Test
+    public void givenTwoLengths_ShouldReturnSumInInches() {
+        Length length1 = new Length(2, Unit.INCH);
+        Length length2 = new Length(2, Unit.INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double sum = quantityMeasurement.add(length1, length2);
+        Assert.assertEquals(4, sum, 0);
+    }
 }

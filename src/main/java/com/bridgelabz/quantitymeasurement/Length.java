@@ -1,7 +1,7 @@
 package com.bridgelabz.quantitymeasurement;
 
 public class Length {
-    private double length;
+    public double length;
 
     public Length(double length, Unit unit) {
         this.length = unit.convertToBase(length);
