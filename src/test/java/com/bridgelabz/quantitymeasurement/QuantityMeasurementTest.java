@@ -290,4 +290,13 @@ public class QuantityMeasurementTest {
         double sum = quantityMeasurement.add(quantity1, quantity2);
         Assert.assertEquals(3, sum, 0);
     }
+
+    @Test
+    public void givenTwoVolumes_WhenEqual_ShouldReturnTrue() {
+        Quantity quantity1 = new Quantity(0, Unit.LITRE);
+        Quantity quantity2 = new Quantity(0, Unit.FEET);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+        Assert.assertEquals(true, areEqual);
+    }
 }
