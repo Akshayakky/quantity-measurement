@@ -245,4 +245,13 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(length1, length2);
         Assert.assertEquals(true, areEqual);
     }
+
+    @Test
+    public void givenTwoLengthsOneInCentimeter_WhenEqual_ShouldReturnTrue() {
+        Length length1 = new Length(5, Unit.CENTIMETER);
+        Length length2 = new Length(2, Unit.INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(length1, length2);
+        Assert.assertEquals(true, areEqual);
+    }
 }
