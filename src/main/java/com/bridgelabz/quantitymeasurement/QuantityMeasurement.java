@@ -2,13 +2,13 @@ package com.bridgelabz.quantitymeasurement;
 
 public class QuantityMeasurement {
 
-    public boolean compare(Length length1, Length length2) {
-        if (length1.equals(length2))
+    public boolean compare(Quantity quantity1, Quantity quantity2) {
+        if (quantity1.equals(quantity2))
             return true;
         return false;
     }
 
-    public double add(Length length1, Length length2) {
-        return length1.length + length2.length;
+    public double add(Quantity quantity1, Quantity quantity2) {
+        return quantity1.quantity + quantity2.quantity;
     }
 }

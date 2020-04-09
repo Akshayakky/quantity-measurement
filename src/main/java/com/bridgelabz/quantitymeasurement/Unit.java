@@ -9,7 +9,7 @@ public enum Unit {
         this.toBase = toBase;
     }
 
-    public double convertToBase(double length) {
-        return length * this.toBase;
+    public double convertToBase(double quantity) {
+        return quantity * this.toBase;
     }
 }
