@@ -481,4 +481,17 @@ public class QuantityMeasurementTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenTwoWeights_ShouldReturnSumInKG() {
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.TONNE);
+            Quantity quantity2 = new Quantity(1000, Unit.GRAMS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(1001, sum, 0.1);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
+    }
 }
