@@ -442,4 +442,17 @@ public class QuantityMeasurementTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenTwoVolumesTest2_ShouldReturnSumInLitre() {
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.LITRE);
+            Quantity quantity2 = new Quantity(1000, Unit.MILLILITRE);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(2, sum, 0.1);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
+    }
 }
