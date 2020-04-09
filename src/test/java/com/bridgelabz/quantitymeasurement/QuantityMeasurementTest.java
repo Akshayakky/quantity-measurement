@@ -100,4 +100,13 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(inch1, inch2);
         Assert.assertEquals(true, areEqual);
     }
+
+    @Test
+    public void givenInchObjectValueDifferent_ShouldReturnTrue() {
+        Inch inch1 = new Inch(12);
+        Inch inch2 = new Inch(11);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(inch1, inch2);
+        Assert.assertNotEquals(true, areEqual);
+    }
 }
