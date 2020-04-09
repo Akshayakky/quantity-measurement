@@ -256,11 +256,20 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTwoLengths_ShouldReturnSumInInches() {
+    public void givenTwoLengthsTest1_ShouldReturnSumInInches() {
         Length length1 = new Length(2, Unit.INCH);
         Length length2 = new Length(2, Unit.INCH);
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
         double sum = quantityMeasurement.add(length1, length2);
         Assert.assertEquals(4, sum, 0);
+    }
+
+    @Test
+    public void givenTwoLengthsTest2_ShouldReturnSumInInches() {
+        Length length1 = new Length(1, Unit.FEET);
+        Length length2 = new Length(2, Unit.INCH);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        double sum = quantityMeasurement.add(length1, length2);
+        Assert.assertEquals(14, sum, 0);
     }
 }
