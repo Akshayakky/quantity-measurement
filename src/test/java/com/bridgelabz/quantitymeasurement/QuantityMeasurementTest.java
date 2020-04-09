@@ -109,4 +109,13 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(length1, length2);
         Assert.assertNotEquals(true, areEqual);
     }
+
+    @Test
+    public void givenInchAndFeetValue_ShouldReturnTrue() {
+        Length length1 = new Length(0, QuantityMeasurement.LengthUnits.INCH);
+        Length length2 = new Length(0, QuantityMeasurement.LengthUnits.FEET);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(length1, length2);
+        Assert.assertEquals(true, areEqual);
+    }
 }
