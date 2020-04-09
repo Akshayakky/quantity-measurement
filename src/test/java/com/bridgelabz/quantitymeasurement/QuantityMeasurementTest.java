@@ -65,4 +65,13 @@ public class QuantityMeasurementTest {
         boolean areEqual = quantityMeasurement.compare(inch1, inch2);
         Assert.assertEquals(true, areEqual);
     }
+
+    @Test
+    public void givenInchObjectNull_ShouldReturnFalse() {
+        Inch inch1 = new Inch(0);
+        Inch inch2 = null;
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+        boolean areEqual = quantityMeasurement.compare(inch1, inch2);
+        Assert.assertEquals(false, areEqual);
+    }
 }
