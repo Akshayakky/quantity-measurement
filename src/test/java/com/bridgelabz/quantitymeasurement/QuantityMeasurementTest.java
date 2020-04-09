@@ -367,38 +367,54 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTwoLengthsTest1_ShouldReturnSumInInches() {
-        Quantity quantity1 = new Quantity(2, Unit.INCH);
-        Quantity quantity2 = new Quantity(2, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        double sum = quantityMeasurement.add(quantity1, quantity2);
-        Assert.assertEquals(4, sum, 0);
+        try {
+            Quantity quantity1 = new Quantity(2, Unit.INCH);
+            Quantity quantity2 = new Quantity(2, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(4, sum, 0);
+        }catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest2_ShouldReturnSumInInches() {
-        Quantity quantity1 = new Quantity(1, Unit.FEET);
-        Quantity quantity2 = new Quantity(2, Unit.INCH);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        double sum = quantityMeasurement.add(quantity1, quantity2);
-        Assert.assertEquals(14, sum, 0);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.FEET);
+            Quantity quantity2 = new Quantity(2, Unit.INCH);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(14, sum, 0);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest3_ShouldReturnSumInInches() {
-        Quantity quantity1 = new Quantity(1, Unit.FEET);
-        Quantity quantity2 = new Quantity(1, Unit.FEET);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        double sum = quantityMeasurement.add(quantity1, quantity2);
-        Assert.assertEquals(24, sum, 0);
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.FEET);
+            Quantity quantity2 = new Quantity(1, Unit.FEET);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(24, sum, 0);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void givenTwoLengthsTest4_ShouldReturnSumInInches() {
-        Quantity quantity1 = new Quantity(2, Unit.INCH);
-        Quantity quantity2 = new Quantity(2.5, Unit.CENTIMETER);
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        double sum = quantityMeasurement.add(quantity1, quantity2);
-        Assert.assertEquals(3, sum, 0);
+        try {
+            Quantity quantity1 = new Quantity(2, Unit.INCH);
+            Quantity quantity2 = new Quantity(2.5, Unit.CENTIMETER);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(3, sum, 0);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -411,6 +427,19 @@ public class QuantityMeasurementTest {
             Assert.assertEquals(true, areEqual);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.ATTRIBUTE_MISMATCH, e.type);
+        }
+    }
+
+    @Test
+    public void givenTwoVolumes_ShouldReturnSumInLitre() {
+        try {
+            Quantity quantity1 = new Quantity(1, Unit.GALLON);
+            Quantity quantity2 = new Quantity(3.78, Unit.LITRE);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(7.57, sum, 0.1);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
         }
     }
 }
