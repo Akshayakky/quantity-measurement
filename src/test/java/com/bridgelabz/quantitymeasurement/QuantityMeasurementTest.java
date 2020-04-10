@@ -507,4 +507,55 @@ public class QuantityMeasurementTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenTwoTemperature_WhenNull_ShouldThrowException() {
+        try {
+            Quantity quantity1 = new Quantity(212, Unit.FAHRENHEIT);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, null);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_QUANTITY, e.type);
+        }
+    }
+
+    @Test
+    public void givenTwoDifferentAttributes_ShouldThrowException() {
+        try {
+            Quantity quantity1 = new Quantity(212, Unit.FAHRENHEIT);
+            Quantity quantity2 = new Quantity(100, Unit.KILOGRAMS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.ATTRIBUTE_MISMATCH, e.type);
+        }
+    }
+
+    @Test
+    public void givenTwoTemperatureToAdd_WhenNull_ShouldThrowException() {
+        try {
+            Quantity quantity1 = new Quantity(212, Unit.FAHRENHEIT);
+            Quantity quantity2 = null;
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals (212, sum, 0);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_QUANTITY, e.type);
+        }
+    }
+
+    @Test
+    public void givenTwoDifferentAttributesToAdd_ShouldThrowException() {
+        try {
+            Quantity quantity1 = new Quantity(212, Unit.FAHRENHEIT);
+            Quantity quantity2 = new Quantity(100, Unit.KILOGRAMS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(312, sum, 0);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.ATTRIBUTE_MISMATCH, e.type);
+        }
+    }
 }
