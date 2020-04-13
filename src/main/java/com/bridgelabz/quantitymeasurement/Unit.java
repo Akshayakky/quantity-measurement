@@ -1,6 +1,6 @@
 package com.bridgelabz.quantitymeasurement;
 
-public enum Unit {
+public enum Unit implements IBaseUnit {
 
     INCH(Attribute.LENGTH, 1), FEET(Attribute.LENGTH, 12)
     , YARD(Attribute.LENGTH, 36), CENTIMETER(Attribute.LENGTH, 0.4)
@@ -17,7 +17,8 @@ public enum Unit {
         this.attribute = attribute;
     }
 
+    @Override
     public double convertToBase(double quantity) {
-        return quantity * this.toBase;
+        return IBaseUnit.super.convertToBase(quantity, toBase);
     }
 }
