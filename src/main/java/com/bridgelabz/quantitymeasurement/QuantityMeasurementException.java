@@ -2,7 +2,7 @@ package com.bridgelabz.quantitymeasurement;
 
 public class QuantityMeasurementException extends Throwable {
     enum ExceptionType {
-        ATTRIBUTE_MISMATCH, NULL_QUANTITY;
+        ATTRIBUTE_MISMATCH, NULL_QUANTITY, NOT_POSSIBLE;
     }
 
     ExceptionType type;

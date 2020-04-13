@@ -2,11 +2,14 @@ package com.bridgelabz.quantitymeasurement;
 
 public class Quantity {
     public double quantity;
-    public Attribute attribute;
+    public UnitType unitType;
 
     public Quantity(double quantity, Unit unit) {
-        this.quantity = unit.convertToBase(quantity);
-        this.attribute = unit.attribute;
+        if (unit.unitType == UnitType.TEMPERATURE)
+            this.quantity = (unit == Unit.FAHRENHEIT) ? (quantity - 32) * 5 / 9 : quantity;
+        else
+            this.quantity = unit.convertToBase(quantity);
+        this.unitType = unit.unitType;
     }
 
     @Override

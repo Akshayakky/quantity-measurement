@@ -509,6 +509,19 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void givenTwoTemperatureTest2_WhenEqual_ShouldReturnTrue() {
+        try {
+            Quantity quantity1 = new Quantity(413.6, Unit.FAHRENHEIT);
+            Quantity quantity2 = new Quantity(212, Unit.CELCIUS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            boolean areEqual = quantityMeasurement.compare(quantity1, quantity2);
+            Assert.assertEquals(true, areEqual);
+        } catch (QuantityMeasurementException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
     public void givenTwoTemperature_WhenNull_ShouldThrowException() {
         try {
             Quantity quantity1 = new Quantity(212, Unit.FAHRENHEIT);
@@ -540,7 +553,7 @@ public class QuantityMeasurementTest {
             Quantity quantity2 = null;
             QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
             double sum = quantityMeasurement.add(quantity1, quantity2);
-            Assert.assertEquals (212, sum, 0);
+            Assert.assertEquals(212, sum, 0);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL_QUANTITY, e.type);
         }
@@ -556,6 +569,19 @@ public class QuantityMeasurementTest {
             Assert.assertEquals(312, sum, 0);
         } catch (QuantityMeasurementException e) {
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.ATTRIBUTE_MISMATCH, e.type);
+        }
+    }
+
+    @Test
+    public void givenTwoTemperaturesToAdd_ShouldThrowException() {
+        try {
+            Quantity quantity1 = new Quantity(212, Unit.FAHRENHEIT);
+            Quantity quantity2 = new Quantity(100, Unit.CELCIUS);
+            QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
+            double sum = quantityMeasurement.add(quantity1, quantity2);
+            Assert.assertEquals(200, sum, 0);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NOT_POSSIBLE, e.type);
         }
     }
 }

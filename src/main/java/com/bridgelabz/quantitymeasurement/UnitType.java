@@ -1,5 +1,5 @@
 package com.bridgelabz.quantitymeasurement;
 
-public enum Attribute {
+public enum UnitType {
     LENGTH, VOLUME, WEIGHT, TEMPERATURE;
 }
